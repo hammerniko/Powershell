@@ -1,6 +1,10 @@
-# read all files
-$OUTPATH = "D:\FilesToPrint\"
-$files = Get-ChildItem -Path $OUTPATH -Recurse -File
+# Speicherort
+$path = "D:\FilesToPrint\"
+echo "Drucke alle Dateien in $path"
 
-echo "Hallo"
+# Alle Files drucken
+$files = Get-ChildItem -Path $path -recurse -Filter "*.java"
+foreach ($file in $files) { Start-Process –FilePath $path\$file –Verb Print -PassThru | %{sleep 10;$_} | kill     }
 
+
+echo "Druckauftrag beendet"
