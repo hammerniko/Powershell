@@ -1,10 +1,12 @@
 # Speicherort
 cls
 $ordner = "D:\FilesToPrint\"
+$filtype = "*.java"
+
 echo "Drucke alle Dateien im Ordner:"$ordner
 
 #Alle Files auflisten
-$files = Get-ChildItem -Path $ordner -recurse -include "*.java"
+$files = Get-ChildItem -Path $ordner -recurse -include $filtype
 
 
 
